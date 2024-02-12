@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a4d74f7a4c7844acb52974f1a8aa68fd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Material: {instanceID: 0}
+  - m_fontAsset: {fileID: 11400000, guid: 6e455feee066d43e09c1b434502ada89, type: 2}
+  - m_sharedMaterial: {instanceID: 0}
+  - m_fontMaterial: {instanceID: 0}
+  - m_fontColorGradientPreset: {instanceID: 0}
+  - m_spriteAsset: {instanceID: 0}
+  - m_StyleSheet: {instanceID: 0}
+  - m_linkedTextComponent: {instanceID: 0}
+  - parentLinkedComponent: {instanceID: 0}
+  - m_renderer: {instanceID: 0}
+  - customTextScriptableObject: {fileID: 11400000, guid: 2dfc20b979c7a4330a40621377a010f3, type: 2}
+  - uIColorScriptableObject: {fileID: 11400000, guid: ba1112fbca4f44a9bb878923e6a6edb8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

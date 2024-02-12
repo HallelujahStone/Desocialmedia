@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Abstract
+namespace Desocialmedia
 {
     public class SafeAreaAdjuster : MonoBehaviour
     {
