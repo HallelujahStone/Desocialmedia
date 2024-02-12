@@ -558,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2761671696563367405}
   - component: {fileID: 2865886056158228542}
+  - component: {fileID: 7556013989041280635}
   m_Layer: 5
   m_Name: Spent Time
   m_TagString: Untagged
@@ -596,3 +597,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8435002176867538005}
   m_CullTransparentMesh: 1
+--- !u!114 &7556013989041280635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8435002176867538005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb94368846804cb682b9eb260531bb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

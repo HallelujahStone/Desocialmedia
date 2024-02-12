@@ -26,6 +26,9 @@ namespace Abstract
         private protected abstract void AbstractOnCustomButtonUp(PointerEventData eventData);
         private Color _firstColor;
         private Color _darkenedColor;
+        
+        private const float SCALE_RATIO = 0.9f;
+        private const float SCALE_DURATION = 0.15f;
 
         private void Start()
         {
@@ -39,6 +42,9 @@ namespace Abstract
         {
             _onPointerDown.OnNext(eventData);
             animationImage.color = _darkenedColor;
+            transform.DOScale(SCALE_RATIO, SCALE_DURATION)
+                .SetEase(Ease.InOutSine)
+                .SetLink(gameObject);
             
             AbstractOnCustomButtonDown(eventData);
         }
@@ -53,6 +59,9 @@ namespace Abstract
         {
             _onPointerUp.OnNext(eventData);
             animationImage.color = _firstColor;
+            transform.DOScale(1, SCALE_DURATION)
+                .SetEase(Ease.InOutSine)
+                .SetLink(gameObject);
             
             AbstractOnCustomButtonUp(eventData);
         }

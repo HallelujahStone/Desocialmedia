@@ -1,5 +1,7 @@
+using System;
 using Abstract;
 using Desocialmedia.ScriptableObject;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,9 +9,11 @@ namespace Desocialmedia
 {
     public class TabController : AbstractCustomButton
     {
+        private readonly Subject<Unit> _onButtonUp = new Subject<Unit>();
+        public IObservable<Unit> OnButtonUp() => _onButtonUp;
+        
         [SerializeField] private UIColorType activeColorType;
         
-        private bool _isActive;
         private UIColorScriptableObject _uIColorScriptableObject;
         private Color _inactiveColor;
         private Color _activeColor;
@@ -17,8 +21,8 @@ namespace Desocialmedia
         private void Awake()
         {
             _uIColorScriptableObject = Resources.Load<UIColorScriptableObject>("UIColorScriptableObject");
-            _activeColor = _uIColorScriptableObject.GetColor(activeColorType);
             _inactiveColor = animationImage.color;
+            _activeColor = _uIColorScriptableObject.GetColor(activeColorType);
         }
 
         private protected override void AbstractOnCustomButtonDown(PointerEventData eventData) { }
@@ -26,8 +30,19 @@ namespace Desocialmedia
 
         private protected override void AbstractOnCustomButtonUp(PointerEventData eventData)
         {
-            _isActive = !_isActive;
-            animationImage.color = _isActive ? _activeColor : _inactiveColor;
+            SetActiveTab();
+            _onButtonUp.OnNext(Unit.Default);
         }
+
+        public void SetActiveTab()
+        {
+            animationImage.color = _activeColor;
+        }
+        
+        public void SetInactiveTab()
+        {
+            animationImage.color = _inactiveColor;
+        }
+        
     }
 }
