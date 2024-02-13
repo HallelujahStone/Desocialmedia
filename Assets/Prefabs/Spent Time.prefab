@@ -609,3 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb94368846804cb682b9eb260531bb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spentTimeType: 0
+  spentHour: {fileID: 4730352391737026284}
+  spentMinute: {fileID: 3375360415016811038}
