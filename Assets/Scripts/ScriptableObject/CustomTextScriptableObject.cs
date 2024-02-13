@@ -9,8 +9,8 @@ namespace Desocialmedia.ScriptableObject
         Medium,
         Large,
         
-        ExtraSmall,
-        
+        XXS,
+        XS,
     }
     
     [CreateAssetMenu(fileName = "CustomTextScriptableObject", menuName = "ScriptableObject/CustomTextScriptableObject", order = 1)]

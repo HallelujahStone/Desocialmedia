@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UniRx;
+using UniRx.Triggers;
 
 namespace Desocialmedia
 {
@@ -11,14 +12,11 @@ namespace Desocialmedia
         [SerializeField] private string[] totalContentHeaderTexts;
         [SerializeField] private SpentTimeController[] spentTimes;
 
-        private void Start()
+        private int _screenTimeSecond;
+        
+        protected void Awake() 
         {
             SetSubscribe();
-            
-            // NOTE: 動作確認用
-            // iOSNativePlugin nativePlugin = new iOSNativePlugin();
-            // nativePlugin.ShowMessage("Hello World!");
-            
         }
 
         private void SetSubscribe()
@@ -29,7 +27,7 @@ namespace Desocialmedia
             
 #if UNITY_ANDROID
             PermissionManager.Instance.OnSpentTimeGotten()
-                .Subscribe(spentTimes[0].SetSpentTime)
+                .Subscribe(SetSpentTime)
                 .AddTo(gameObject);
 #endif
         }
@@ -37,15 +35,17 @@ namespace Desocialmedia
         private void ChangeContent(int index)
         {
             string[] texts;
+            int[] times;
             switch (index)
             {
                 case 0:
                     texts = todayContentHeaderTexts;
+                    times = new[] {99*60, 138*60, 21*60};
                     SetText();
-                    
                     break;
                 case 1:
                     texts = totalContentHeaderTexts;
+                    times = new[] {2212*60, _screenTimeSecond, 1043*60};
                     SetText();
                     break;
                 case 2:
@@ -59,7 +59,19 @@ namespace Desocialmedia
                     contentHeaderTexts[i].Text = texts[i];
                     contentHeaderTexts[i].UpdateCustomText();
                 }
+
+                for (int j = 0; j < times.Length; j++)
+                {
+                    spentTimes[j].SetSpentTime(times[j]);
+                    spentTimes[j].UpdateAsObservable();
+                }
             }
+        }
+
+        private void SetSpentTime(long spentTime)
+        {
+            spentTime /= 1000;
+            _screenTimeSecond = (int)spentTime;
         }
     }
 }

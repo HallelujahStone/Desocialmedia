@@ -4,7 +4,7 @@ namespace Desocialmedia
 {
     public class AndroidNativePlugin
     {
-        public string GetUsageStats()
+        public long GetUsageStats()
         {
             if (Application.platform == RuntimePlatform.Android)
             {
@@ -13,13 +13,12 @@ namespace Desocialmedia
                     using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
                     {
                         var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-                        string response = usageStatsPlugin.CallStatic<string>("getUsageStats", currentActivity);
-                        Debug.Log($"response {response}");
+                        return usageStatsPlugin.CallStatic<long>("getUsageStats", currentActivity);
                     }
                 }
             }
 
-            return "";
+            return 0;
         }
     }
 }

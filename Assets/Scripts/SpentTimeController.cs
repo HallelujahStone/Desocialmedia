@@ -18,13 +18,16 @@ namespace Desocialmedia
         private void Start()
         {
             int testMinutes = 111;
-            
-            
         }
 
-        public void SetSpentTime(string screenTime)
+        public void SetSpentTime(int spentTime)
         {
-            spentMinute.Text = screenTime;
+            int hours = spentTime / 3600;
+            int minutes = (spentTime % 3600) / 60;
+            spentHour.Text = hours.ToString();
+            spentMinute.Text = minutes.ToString();
+            spentHour.UpdateCustomText();
+            spentMinute.UpdateCustomText();
         }
         
     }

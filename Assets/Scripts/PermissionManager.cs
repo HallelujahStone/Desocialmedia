@@ -11,8 +11,8 @@ namespace Desocialmedia
 {
     public class PermissionManager : SingletonMonoBehaviour<PermissionManager>
     {
-        private readonly Subject<string> _onSpentTimeGotten = new Subject<string>();
-        public IObservable<string> OnSpentTimeGotten() => _onSpentTimeGotten;
+        private readonly Subject<long> _onSpentTimeGotten = new Subject<long>();
+        public IObservable<long> OnSpentTimeGotten() => _onSpentTimeGotten;
             
         private bool _isRequesting;
         

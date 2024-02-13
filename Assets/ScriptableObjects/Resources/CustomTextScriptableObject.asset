@@ -22,3 +22,5 @@ MonoBehaviour:
     size: 110
   - type: 3
     size: 32
+  - type: 4
+    size: 34

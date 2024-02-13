@@ -16,11 +16,4 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
             return instance;
         }
     }
-
-    virtual protected void Awake ()
-    {
-        if (this != Instance)
-            Destroy(this);
-    }
-
 }
