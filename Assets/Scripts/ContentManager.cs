@@ -45,7 +45,7 @@ namespace Desocialmedia
                     break;
                 case 1:
                     texts = totalContentHeaderTexts;
-                    times = new[] {2212*60, _screenTimeSecond, 1043*60};
+                    times = new[] {_screenTimeSecond, 3255*60, 1043*60};
                     SetText();
                     break;
                 case 2:

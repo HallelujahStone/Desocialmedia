@@ -15,9 +15,9 @@ MonoBehaviour:
   FontAsset: {fileID: 11400000, guid: 6e455feee066d43e09c1b434502ada89, type: 2}
   Entries:
   - type: 0
-    size: 46
+    size: 40
   - type: 1
-    size: 52
+    size: 44
   - type: 2
     size: 110
   - type: 3
